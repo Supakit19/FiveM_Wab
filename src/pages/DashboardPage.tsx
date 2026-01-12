@@ -463,16 +463,23 @@ export default function DashboardPage() {
                     {(roundsConfig.length > 0
                       ? roundsConfig
                       : [
-                          { id: 1, name: "รอบที่ 1" },
-                          { id: 2, name: "รอบที่ 2" },
-                          { id: 3, name: "รอบที่ 3" },
+                          { id: 1, name: "รอบที่ 1", startTime: "20:00" },
+                          { id: 2, name: "รอบที่ 2", startTime: "21:30" },
+                          { id: 3, name: "รอบที่ 3", startTime: "22:30" },
                         ]
                     ).map((round: any) => (
                       <th
                         key={round.id}
                         className="px-4 py-3 md:px-6 md:py-4 text-nowrap text-center"
                       >
-                        {round.name}
+                        <span className="flex items-center justify-center gap-2">
+                          <span>{round.name}</span>
+                          {round.startTime && (
+                            <span className="text-xs font-mono text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full border border-teal-500/20">
+                              {round.startTime}
+                            </span>
+                          )}
+                        </span>
                       </th>
                     ))}
                   </tr>
